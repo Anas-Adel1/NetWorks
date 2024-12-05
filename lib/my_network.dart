@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_network/widgets/social_media_icon.dart';
+import 'package:my_network/widgets/contacts_grid.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MyContacts extends StatelessWidget {
@@ -92,23 +92,7 @@ class MyContacts extends StatelessWidget {
                 const SizedBox(
                   height: 5,
                 ),
-                GridView.builder(
-                  gridDelegate:  const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      // crossAxisSpacing: 25.0,
-                      // mainAxisSpacing: 10.0,
-                    ),
-                  itemCount: _socialMedia.length,
-                  itemBuilder: (context, index) {
-                    if(index < _socialMedia.length){
-                      return SocialMediaIcon(socialMedia: _socialMedia.keys.toList()[index], socialMediaLinks: _socialMedia.values.toList()[index]);
-                    }
-                    return SocialMediaIcon(socialMedia: _socialMedia.keys.toList()[index-_socialMedia.length], socialMediaLinks: _socialMedia.values.toList()[index-_socialMedia.length]);
-                  },
-                  shrinkWrap: true,
-                  physics:  const NeverScrollableScrollPhysics(),
-                  padding:  const EdgeInsets.all(25),
-                ),
+                ContactsGrid(socialMedia: _socialMedia),
               ],
             ),
           ),
@@ -117,3 +101,4 @@ class MyContacts extends StatelessWidget {
     );
   }
 }
+
