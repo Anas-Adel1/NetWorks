@@ -10,15 +10,17 @@ class StartSocialMedia extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 3, 7, 30),
       appBar: AppBar(backgroundColor: Colors.transparent,),
-      body: Center(
-        child: ElevatedButton(
-          style: const ButtonStyle(
-            backgroundColor: WidgetStatePropertyAll(Colors.deepOrange),
+        body: Center(
+          child: ElevatedButton(
+            style: const ButtonStyle(
+              backgroundColor: WidgetStatePropertyAll(Colors.deepOrange),
+            ),
+            onPressed: () {
+              launchUrl(url, mode: LaunchMode.externalApplication);
+            },
+            child: const Text('Start Social Media'),
           ),
-          onPressed: (){
-          launchUrl(url, mode: LaunchMode.externalApplication);
-        }, child: const Text('Start Social Media')),
-      )
+        )
     );
   }
 }
