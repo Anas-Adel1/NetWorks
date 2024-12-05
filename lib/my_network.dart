@@ -4,15 +4,16 @@ import 'package:url_launcher/url_launcher.dart';
 
 class MyContacts extends StatelessWidget {
   MyContacts({super.key});
-   final Map<String, String> _socialMedia = {
-    'facebook': 'https://www.facebook.com/',
-    'instagram': 'https://www.facebook.com/',
-    'linkedin': 'https://www.facebook.com/',
-    'snapchat': 'https://www.facebook.com/',
-    'telegram': 'https://www.facebook.com/',
-    'tiktok': 'https://www.facebook.com/',
-    'whatsapp': 'https://www.facebook.com/',
-    'youtube': 'https://www.facebook.com/',
+  final Uri _phoneNumber = Uri.parse('tel:+967715729291');
+   final Map<String, Uri> _socialMedia = {
+    'facebook': Uri.parse('https://www.facebook.com/'),
+    'instagram': Uri.parse('https://www.facebook.com/'),
+    'linkedin': Uri.parse('https://www.facebook.com/'),
+    'snapchat': Uri.parse('https://www.facebook.com/'),
+    'telegram': Uri.parse('https://www.facebook.com/'),
+    'tiktok': Uri.parse('https://www.facebook.com/'),
+    'whatsapp': Uri.parse('https://www.facebook.com/'),
+    'youtube': Uri.parse('https://www.facebook.com/'),
     // 'youtube',
    };
   @override
@@ -84,7 +85,7 @@ class MyContacts extends StatelessWidget {
                         color: Color.fromRGBO(217, 217, 217, 1),
                       ),
                       onPressed: () {
-                        launchUrl(Uri.parse('tel:+967715729291'));
+                        launchUrl(_phoneNumber);
                       },
                     ),
                   ],

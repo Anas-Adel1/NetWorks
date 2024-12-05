@@ -4,10 +4,10 @@ import 'package:my_network/widgets/social_media_icon.dart';
 class ContactsGrid extends StatelessWidget {
   const ContactsGrid({
     super.key,
-    required Map<String, String> socialMedia,
+    required Map<String, Uri> socialMedia,
   }) : _socialMedia = socialMedia;
 
-  final Map<String, String> _socialMedia;
+  final Map<String, Uri> _socialMedia;
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +20,9 @@ class ContactsGrid extends StatelessWidget {
       itemCount: _socialMedia.length,
       itemBuilder: (context, index) {
         if(index < _socialMedia.length){
-          return SocialMediaIcon(socialMedia: _socialMedia.keys.toList()[index], socialMediaLinks: _socialMedia.values.toList()[index]);
+          return SocialMediaIcon(platform: _socialMedia.keys.toList()[index], url: _socialMedia.values.toList()[index]);
         }
-        return SocialMediaIcon(socialMedia: _socialMedia.keys.toList()[index-_socialMedia.length], socialMediaLinks: _socialMedia.values.toList()[index-_socialMedia.length]);
+        return SocialMediaIcon(platform: _socialMedia.keys.toList()[index-_socialMedia.length], url: _socialMedia.values.toList()[index-_socialMedia.length]);
       },
       shrinkWrap: true,
       physics:  const NeverScrollableScrollPhysics(),

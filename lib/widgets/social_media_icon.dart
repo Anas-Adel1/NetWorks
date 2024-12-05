@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:my_network/start.dart';
 
 class SocialMediaIcon extends StatelessWidget {
 
-  final String socialMedia;
-  final String socialMediaLinks;
+  final String platform;
+  final Uri url;
   const SocialMediaIcon({
     super.key,
-    required this.socialMedia,
-    required this.socialMediaLinks
+    required this.platform,
+    required this.url
   });
 
   @override
@@ -19,10 +19,17 @@ class SocialMediaIcon extends StatelessWidget {
         child: CircleAvatar(
           radius: 35,
           backgroundImage:
-              AssetImage('assets/social media/$socialMedia.jpg'),
+              AssetImage('assets/social media/$platform.jpg'),
         ),
         onTap: () {
-          launchUrl(Uri.parse(socialMediaLinks), mode: LaunchMode.externalApplication);
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => StartSocialMedia(
+                url: url,
+              ),
+            ),
+          );
         },
       ),
     );
